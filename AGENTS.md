@@ -48,12 +48,14 @@ shouhizei/
 │   ├── index.html
 │   ├── css/
 │   │   ├── styles.css
-│   │   └── variables.css (optional)
+│   │   └── variables.css
 │   ├── js/
 │   │   ├── calculator.js
-│   │   └── utils.js (optional)
+│   │   ├── rates.json
+│   │   ├── theme.js
+│   │   └── utils.js
 │   └── assets/
-│       └── favicon.ico
+│       └── shouhizei.png
 ├── AGENTS.md (this file)
 ├── Makefile
 ├── README.md
@@ -65,36 +67,38 @@ shouhizei/
 ### Calculator Functionality
 
 **Required Inputs:**
-- Country dropdown selector
+- Country dropdown selector (fetched from `rates.json`)
 - GST/VAT rate (pre-populated depending on country selected)
-- Price with tax input
-- Price without tax input
-- The price inputs are either-or
+- Price with tax input (shows currency symbol if selected)
+- Price without tax input (shows currency symbol if selected)
+- The price inputs are either-or (real-time sync)
 
 **Required Outputs:**
-- Total amount after GST/VAT
-- Total GST/VAT amount
+- Total amount after GST/VAT (with currency symbol)
+- Total GST/VAT amount (with currency symbol)
 - Price breakdown (with/without tax)
-
+- Copy-to-clipboard functionality for results
 
 ### User Experience Requirements
 
 **Input Validation:**
 - All inputs must be positive numbers
 - Use HTML5 native validation attributes (`required`, `min`, `max`, `step`)
-- Provide clear error messages
+- Provide clear error messages (toast notifications)
 
 **Interaction Patterns:**
-- Real-time calculation (on input change) OR button-triggered calculation
+- Real-time calculation (on input change)
 - Clear/reset button to restore defaults
 - Responsive design (mobile-first approach)
 - Keyboard navigation support
 - Print-friendly styles
+- Theme toggle (Dark/Light mode)
 
 **Visual Feedback:**
 - Success/error states
 - Smooth transitions (CSS only)
 - Clear visual hierarchy
+- Toast notifications for user actions (e.g., copying results)
 
 ### Accessibility Requirements (Mandatory)
 
@@ -294,22 +298,25 @@ This serves the `web/` directory at `http://localhost:8000`.
 ### Phase 1: MVP (Minimum Viable Product)
 
 **Priority: High**
-- [ ] Basic HTML structure
-- [ ] Simple CSS styling
-- [ ] Core calculation logic
-- [ ] Input validation
-- [ ] Results display
-- [ ] Responsive layout
+- [x] Basic HTML structure
+- [x] Simple CSS styling
+- [x] Core calculation logic
+- [x] Input validation
+- [x] Results display
+- [x] Responsive layout
+- [x] Country data from external JSON (`rates.json`)
 
 **Deliverable:** Working calculator with basic styling
 
 ### Phase 2: Enhancements
 
 **Priority: Medium**
-- [ ] Improved styling and UX
+- [x] Improved styling and UX
 - [ ] Print styles
-- [ ] Accessibility improvements
-- [ ] Error handling refinements
+- [x] Accessibility improvements
+- [x] Error handling refinements (Toast notifications)
+- [x] Theme toggle (Dark/Light mode)
+- [x] Copy results to clipboard
 
 **Deliverable:** Polished, accessible calculator
 
@@ -317,10 +324,10 @@ This serves the `web/` directory at `http://localhost:8000`.
 
 **Priority: Low**
 - [ ] Chart visualisation (Chart.js)
-- [ ] Export results (CSV/print)
+- [ ] Export results (CSV)
 - [ ] Comparison calculator (multiple scenarios)
-- [ ] Dark mode toggle
 - [ ] Save calculations (localStorage)
+- [ ] Detailed tax breakdown (reduced vs standard rates)
 
 **Deliverable:** Feature-rich calculator
 
@@ -580,6 +587,7 @@ If uncertain about any requirement:
 
 ## Version History
 
+  - **v1.7** (2026-03-02) - Updated project structure to include `theme.js` and `rates.json`, updated development phases, and synchronized documentation with current codebase.
   - **v1.6** (2026-03-02) - Integrated currency symbols from updated `rates.json` and adjusted JS for new JSON structure
   - **v1.5** (2026-03-02) - Removed manual entry option from country selector
   - **v1.4** (2026-03-02) - Completed Phase 1 MVP, updated country data and calculations
@@ -594,6 +602,14 @@ If uncertain about any requirement:
 
 ---
 
-**Last Updated:** 2026-02-25  
-**Document Owner:** Project Team  
+## Changelog (v1.7)
+- **Updated Project Structure**: Included `web/js/theme.js`, `web/js/rates.json`, and `web/assets/shouhizei.png`.
+- **Updated Development Phases**: Marked MVP as completed and several Phase 2 items (Theme toggle, Toast notifications, Copy to clipboard) as completed.
+- **Improved Requirements**: Added explicit mentions of `rates.json` and currency symbol support in core requirements.
+- **Fixed Inconsistencies**: Synchronized footer "Last Updated" date with Version History.
+
+---
+
+**Last Updated:** 2026-03-02
+**Document Owner:** Project Team
 **Review Frequency:** As needed based on project evolution
