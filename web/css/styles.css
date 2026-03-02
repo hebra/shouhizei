@@ -253,9 +253,9 @@ button[type="reset"]:focus {
 }
 
 .results-header {
-  margin-bottom: var(--spacing-2xl);
   display: flex;
   flex-direction: column;
+  gap: var(--spacing-lg);
 }
 
 .results-label {
@@ -264,32 +264,58 @@ button[type="reset"]:focus {
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: var(--text-secondary);
-  margin-bottom: var(--spacing-xs);
-}
-
-.results-total {
-  font-size: 2.5rem;
-  font-weight: 900;
-  color: var(--primary-colour);
+  border-bottom: 2px solid var(--border-colour);
+  padding-bottom: var(--spacing-xs);
 }
 
 .results-summary {
-  margin-top: var(--spacing-sm);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.summary-value-wrapper {
   display: flex;
   align-items: center;
   gap: var(--spacing-sm);
 }
 
+.copy-btn {
+  background: none;
+  border: 1px solid var(--border-colour);
+  border-radius: var(--border-radius-sm);
+  padding: 4px;
+  cursor: pointer;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-speed);
+}
+
+.copy-btn:hover {
+  background-color: var(--bg-main);
+  color: var(--primary-colour);
+  border-color: var(--primary-colour);
+}
+
+.copy-btn.copied {
+  color: var(--accent-colour);
+  border-color: var(--accent-colour);
+}
+
 .summary-label {
   font-size: 0.875rem;
-  font-weight: 500;
+  font-weight: 700;
   color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
 .summary-value {
-  font-size: 0.875rem;
-  font-weight: 700;
-  color: var(--accent-colour);
+  font-size: 2.25rem;
+  font-weight: 900;
+  color: var(--primary-colour);
 }
 
 /* Grid lines (not used) */
@@ -340,4 +366,45 @@ select {
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border-width: 0;
+}
+
+/* Toast Notification */
+.toast-container {
+  position: fixed;
+  top: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  pointer-events: none;
+}
+
+.toast {
+  background-color: var(--primary-colour);
+  color: var(--bg-main);
+  padding: var(--spacing-sm) var(--spacing-lg);
+  border-radius: var(--border-radius-lg);
+  font-weight: 600;
+  font-size: 0.875rem;
+  box-shadow: var(--shadow-md);
+  opacity: 0;
+  transform: translateY(-1rem);
+  transition: all 0.3s ease;
+  pointer-events: auto;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  white-space: nowrap;
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.toast.fade-out {
+  opacity: 0;
+  transform: translateY(-1rem);
 }

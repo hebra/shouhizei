@@ -41,3 +41,47 @@ const debounce = (func, wait = 300) => {
     timeout = setTimeout(() => func.apply(this, args), wait);
   };
 };
+
+/**
+ * Copy text to clipboard and provide visual feedback
+ * @param {string} text - The text to copy
+ * @returns {Promise<boolean>} Success or failure
+ */
+// deno-lint-ignore no-unused-vars
+const copyToClipboard = async (text) => {
+  if (!text) return false;
+  try {
+    await navigator.clipboard.writeText(text);
+    return true;
+  } catch (err) {
+    console.error("Failed to copy text: ", err);
+    return false;
+  }
+};
+
+/**
+ * Show a toast notification
+ * @param {string} message - The message to display
+ * @param {number} duration - The duration in ms (default 3000)
+ */
+// deno-lint-ignore no-unused-vars
+const showToast = (message, duration = 3000) => {
+  const container = document.getElementById("toast-container");
+  if (!container) return;
+
+  const toast = document.createElement("div");
+  toast.className = "toast";
+  toast.textContent = message;
+
+  container.appendChild(toast);
+
+  // Animate in
+  setTimeout(() => toast.classList.add("show"), 10);
+
+  // Fade out
+  setTimeout(() => {
+    toast.classList.add("fade-out");
+    // Remove from DOM after fade animation
+    setTimeout(() => toast.remove(), 300);
+  }, duration);
+};

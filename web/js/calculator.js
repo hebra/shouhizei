@@ -18,6 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const resTaxLabel = document.getElementById("res-tax-label");
   const resTaxValue = document.getElementById("res-tax-value");
   const resInclTax = document.getElementById("res-incl-tax");
+  const taxCopyBtn = document.querySelector('[data-target="res-tax-value"]');
 
   let ratesData = null;
   let currentSymbol = "";
@@ -65,7 +66,7 @@ document.addEventListener("DOMContentLoaded", () => {
    */
   const handleCountryChange = () => {
     const selectedCode = countrySelect.value;
-    
+
     // Remember selection
     if (selectedCode) {
       localStorage.setItem("selectedCountry", selectedCode);
@@ -76,6 +77,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!selectedCode) {
       taxRateLabel.textContent = "Tax Rate (%)";
       resTaxLabel.textContent = "Tax Amount:";
+      if (taxCopyBtn) taxCopyBtn.setAttribute("aria-label", "Copy Tax Amount");
       taxRateInput.value = "0";
       currentSymbol = "";
     } else {
@@ -83,9 +85,13 @@ document.addEventListener("DOMContentLoaded", () => {
         c.code === selectedCode
       );
       if (countryInfo) {
+        const taxType = countryInfo.tax_type || "Tax";
         taxRateInput.value = countryInfo.rate;
-        taxRateLabel.textContent = `${countryInfo.tax_type} Rate (%)`;
-        resTaxLabel.textContent = `${countryInfo.tax_type} Amount:`;
+        taxRateLabel.textContent = `${taxType} Rate (%)`;
+        resTaxLabel.textContent = `${taxType} Amount:`;
+        if (taxCopyBtn) {
+          taxCopyBtn.setAttribute("aria-label", `Copy ${taxType} Amount`);
+        }
         currentSymbol = countryInfo.symbol || "";
       }
     }
@@ -104,6 +110,40 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Recalculate based on current inputs
     updateCalculations("excl");
+  };
+
+  /**
+   * Initialize copy buttons with event listeners and feedback
+   */
+  const initCopyButtons = () => {
+    const copyButtons = document.querySelectorAll(".copy-btn");
+    copyButtons.forEach((btn) => {
+      btn.addEventListener("click", async () => {
+        const targetId = btn.getAttribute("data-target");
+        const targetEl = document.getElementById(targetId);
+
+        if (targetEl) {
+          const textToCopy = targetEl.dataset.value || targetEl.textContent;
+          // deno-lint-ignore no-undef
+          const success = await copyToClipboard(textToCopy);
+
+          if (success) {
+            // deno-lint-ignore no-undef
+            showToast(`Copied: ${textToCopy}`);
+            btn.classList.add("copied");
+            const originalIcon = btn.innerHTML;
+            // Success checkmark icon
+            btn.innerHTML =
+              `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>`;
+
+            setTimeout(() => {
+              btn.classList.remove("copied");
+              btn.innerHTML = originalIcon;
+            }, 2000);
+          }
+        }
+      });
+    });
   };
 
   /**
@@ -131,9 +171,18 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // Update Results Display
-    resExclTax.textContent = formatCurrency(priceExcl, currentSymbol);
-    resTaxValue.textContent = formatCurrency(taxAmount, currentSymbol);
-    resInclTax.textContent = formatCurrency(priceIncl, currentSymbol);
+    const formattedExcl = formatCurrency(priceExcl, currentSymbol);
+    const formattedTax = formatCurrency(taxAmount, currentSymbol);
+    const formattedIncl = formatCurrency(priceIncl, currentSymbol);
+
+    resExclTax.textContent = formattedExcl;
+    resTaxValue.textContent = formattedTax;
+    resInclTax.textContent = formattedIncl;
+
+    // Store raw numeric value for copying (no symbol, no grouping separators)
+    resExclTax.dataset.value = priceExcl.toFixed(2);
+    resTaxValue.dataset.value = taxAmount.toFixed(2);
+    resInclTax.dataset.value = priceIncl.toFixed(2);
   };
 
   // Event Listeners
@@ -161,4 +210,5 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Start initialization
   init();
+  initCopyButtons();
 });

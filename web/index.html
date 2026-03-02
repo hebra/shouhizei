@@ -161,15 +161,32 @@
           <div class="results-card" aria-live="polite">
             <div class="results-header">
               <span class="results-label">Breakdown</span>
-              <span class="results-total" id="res-incl-tax">0.00</span>
               <div class="results-summary">
-                <span class="summary-label" id="res-tax-label"
-                >Tax Amount:</span>
-                <span class="summary-value" id="res-tax-value">0.00</span>
+                <span class="summary-label">Price (Including Tax):</span>
+                <div class="summary-value-wrapper">
+                  <span class="summary-value" id="res-incl-tax">0.00</span>
+                  <button class="copy-btn" data-target="res-incl-tax" aria-label="Copy Price Including Tax">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                  </button>
+                </div>
               </div>
               <div class="results-summary">
-                <span class="summary-label">Amount (Excl. Tax):</span>
-                <span class="summary-value" id="res-excl-tax">0.00</span>
+                <span class="summary-label" id="res-tax-label">Tax Amount:</span>
+                <div class="summary-value-wrapper">
+                  <span class="summary-value" id="res-tax-value">0.00</span>
+                  <button class="copy-btn" data-target="res-tax-value" aria-label="Copy Tax Amount">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                  </button>
+                </div>
+              </div>
+              <div class="results-summary">
+                <span class="summary-label">Price (Excluding Tax):</span>
+                <div class="summary-value-wrapper">
+                  <span class="summary-value" id="res-excl-tax">0.00</span>
+                  <button class="copy-btn" data-target="res-excl-tax" aria-label="Copy Price Excluding Tax">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                  </button>
+                </div>
               </div>
             </div>
           </div>
@@ -178,12 +195,13 @@
 
       <footer>
         <p>
-          &copy; 2026 Shouhizei Project. All rates are standard percentages.
+          All rates are standard percentages.
         </p>
       </footer>
     </div>
 
     <!-- Scripts -->
+    <div id="toast-container" class="toast-container" aria-live="assertive"></div>
     <script src="js/theme.js"></script>
     <script src="js/utils.js"></script>
     <script src="js/calculator.js"></script>
