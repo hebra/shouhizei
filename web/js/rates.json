@@ -1,0 +1,382 @@
+{
+  "last_updated": "2026-03-02",
+  "disclaimer": "Rates refer to the 'Standard' rate. Local exceptions or reduced rates may apply.",
+  "tax_data": [
+    {
+      "country": "Albania",
+      "code": "AL",
+      "tax_type": "VAT",
+      "rate": 20.0,
+      "currency": "ALL",
+      "symbol": "L"
+    },
+    {
+      "country": "Argentina",
+      "code": "AR",
+      "tax_type": "VAT",
+      "rate": 21.0,
+      "currency": "ARS",
+      "symbol": "$"
+    },
+    {
+      "country": "Australia",
+      "code": "AU",
+      "tax_type": "GST",
+      "rate": 10.0,
+      "currency": "AUD",
+      "symbol": "$"
+    },
+    {
+      "country": "Austria",
+      "code": "AT",
+      "tax_type": "VAT",
+      "rate": 20.0,
+      "currency": "EUR",
+      "symbol": "€"
+    },
+    {
+      "country": "Bahamas",
+      "code": "BS",
+      "tax_type": "VAT",
+      "rate": 10.0,
+      "currency": "BSD",
+      "symbol": "$"
+    },
+    {
+      "country": "Bahrain",
+      "code": "BH",
+      "tax_type": "VAT",
+      "rate": 10.0,
+      "currency": "BHD",
+      "symbol": ".د.ب"
+    },
+    {
+      "country": "Bangladesh",
+      "code": "BD",
+      "tax_type": "VAT",
+      "rate": 15.0,
+      "currency": "BDT",
+      "symbol": "৳"
+    },
+    {
+      "country": "Belgium",
+      "code": "BE",
+      "tax_type": "VAT",
+      "rate": 21.0,
+      "currency": "EUR",
+      "symbol": "€"
+    },
+    {
+      "country": "Bhutan",
+      "code": "BT",
+      "tax_type": "GST",
+      "rate": 5.0,
+      "currency": "BTN",
+      "symbol": "Nu."
+    },
+    {
+      "country": "Brazil",
+      "code": "BR",
+      "tax_type": "IBS/CBS",
+      "rate": 26.5,
+      "currency": "BRL",
+      "symbol": "R$"
+    },
+    {
+      "country": "Bulgaria",
+      "code": "BG",
+      "tax_type": "VAT",
+      "rate": 20.0,
+      "currency": "EUR",
+      "symbol": "€"
+    },
+    {
+      "country": "Canada",
+      "code": "CA",
+      "tax_type": "GST",
+      "rate": 5.0,
+      "currency": "CAD",
+      "symbol": "$"
+    },
+    {
+      "country": "Chile",
+      "code": "CL",
+      "tax_type": "VAT",
+      "rate": 19.0,
+      "currency": "CLP",
+      "symbol": "$"
+    },
+    {
+      "country": "China",
+      "code": "CN",
+      "tax_type": "VAT",
+      "rate": 13.0,
+      "currency": "CNY",
+      "symbol": "¥"
+    },
+    {
+      "country": "Ecuador",
+      "code": "EC",
+      "tax_type": "VAT",
+      "rate": 15.0,
+      "currency": "USD",
+      "symbol": "$"
+    },
+    {
+      "country": "Estonia",
+      "code": "EE",
+      "tax_type": "VAT",
+      "rate": 24.0,
+      "currency": "EUR",
+      "symbol": "€"
+    },
+    {
+      "country": "Finland",
+      "code": "FI",
+      "tax_type": "VAT",
+      "rate": 25.5,
+      "currency": "EUR",
+      "symbol": "€"
+    },
+    {
+      "country": "France",
+      "code": "FR",
+      "tax_type": "VAT",
+      "rate": 20.0,
+      "currency": "EUR",
+      "symbol": "€"
+    },
+    {
+      "country": "Germany",
+      "code": "DE",
+      "tax_type": "VAT",
+      "rate": 19.0,
+      "currency": "EUR",
+      "symbol": "€"
+    },
+    {
+      "country": "Ghana",
+      "code": "GH",
+      "tax_type": "VAT",
+      "rate": 20.0,
+      "currency": "GHS",
+      "symbol": "GH₵"
+    },
+    {
+      "country": "Hungary",
+      "code": "HU",
+      "tax_type": "VAT",
+      "rate": 27.0,
+      "currency": "HUF",
+      "symbol": "Ft"
+    },
+    {
+      "country": "India",
+      "code": "IN",
+      "tax_type": "GST",
+      "rate": 18.0,
+      "currency": "INR",
+      "symbol": "₹"
+    },
+    {
+      "country": "Indonesia",
+      "code": "ID",
+      "tax_type": "VAT",
+      "rate": 12.0,
+      "currency": "IDR",
+      "symbol": "Rp"
+    },
+    {
+      "country": "Israel",
+      "code": "IL",
+      "tax_type": "VAT",
+      "rate": 18.0,
+      "currency": "ILS",
+      "symbol": "₪"
+    },
+    {
+      "country": "Japan",
+      "code": "JP",
+      "tax_type": "JCT",
+      "rate": 10.0,
+      "currency": "JPY",
+      "symbol": "¥"
+    },
+    {
+      "country": "Kazakhstan",
+      "code": "KZ",
+      "tax_type": "VAT",
+      "rate": 16.0,
+      "currency": "KZT",
+      "symbol": "₸"
+    },
+    {
+      "country": "Lithuania",
+      "code": "LT",
+      "tax_type": "VAT",
+      "rate": 21.0,
+      "currency": "EUR",
+      "symbol": "€"
+    },
+    {
+      "country": "Malaysia",
+      "code": "MY",
+      "tax_type": "SST",
+      "rate": 10.0,
+      "currency": "MYR",
+      "symbol": "RM"
+    },
+    {
+      "country": "Mexico",
+      "code": "MX",
+      "tax_type": "VAT",
+      "rate": 16.0,
+      "currency": "MXN",
+      "symbol": "$"
+    },
+    {
+      "country": "Netherlands",
+      "code": "NL",
+      "tax_type": "VAT",
+      "rate": 21.0,
+      "currency": "EUR",
+      "symbol": "€"
+    },
+    {
+      "country": "New Zealand",
+      "code": "NZ",
+      "tax_type": "GST",
+      "rate": 15.0,
+      "currency": "NZD",
+      "symbol": "$"
+    },
+    {
+      "country": "Norway",
+      "code": "NO",
+      "tax_type": "VAT",
+      "rate": 25.0,
+      "currency": "NOK",
+      "symbol": "kr"
+    },
+    {
+      "country": "Russia",
+      "code": "RU",
+      "tax_type": "VAT",
+      "rate": 22.0,
+      "currency": "RUB",
+      "symbol": "₽"
+    },
+    {
+      "country": "Saudi Arabia",
+      "code": "SA",
+      "tax_type": "VAT",
+      "rate": 15.0,
+      "currency": "SAR",
+      "symbol": "ر.س"
+    },
+    {
+      "country": "Singapore",
+      "code": "SG",
+      "tax_type": "GST",
+      "rate": 9.0,
+      "currency": "SGD",
+      "symbol": "$"
+    },
+    {
+      "country": "Slovakia",
+      "code": "SK",
+      "tax_type": "VAT",
+      "rate": 23.0,
+      "currency": "EUR",
+      "symbol": "€"
+    },
+    {
+      "country": "South Africa",
+      "code": "ZA",
+      "tax_type": "VAT",
+      "rate": 15.0,
+      "currency": "ZAR",
+      "symbol": "R"
+    },
+    {
+      "country": "South Korea",
+      "code": "KR",
+      "tax_type": "VAT",
+      "rate": 10.0,
+      "currency": "KRW",
+      "symbol": "₩"
+    },
+    {
+      "country": "Spain",
+      "code": "ES",
+      "tax_type": "VAT",
+      "rate": 21.0,
+      "currency": "EUR",
+      "symbol": "€"
+    },
+    {
+      "country": "Switzerland",
+      "code": "CH",
+      "tax_type": "VAT",
+      "rate": 8.1,
+      "currency": "CHF",
+      "symbol": "CHF"
+    },
+    {
+      "country": "Thailand",
+      "code": "TH",
+      "tax_type": "VAT",
+      "rate": 7.0,
+      "currency": "THB",
+      "symbol": "฿"
+    },
+    {
+      "country": "Turkey",
+      "code": "TR",
+      "tax_type": "VAT",
+      "rate": 20.0,
+      "currency": "TRY",
+      "symbol": "₺"
+    },
+    {
+      "country": "United Arab Emirates",
+      "code": "AE",
+      "tax_type": "VAT",
+      "rate": 5.0,
+      "currency": "AED",
+      "symbol": "د.إ"
+    },
+    {
+      "country": "United Kingdom",
+      "code": "GB",
+      "tax_type": "VAT",
+      "rate": 20.0,
+      "currency": "GBP",
+      "symbol": "£"
+    },
+    {
+      "country": "United States",
+      "code": "US",
+      "tax_type": "Sales Tax",
+      "rate": "0",
+      "currency": "USD",
+      "symbol": "$"
+    },
+    {
+      "country": "Vietnam",
+      "code": "VN",
+      "tax_type": "VAT",
+      "rate": 10.0,
+      "currency": "VND",
+      "symbol": "₫"
+    },
+    {
+      "country": "Zimbabwe",
+      "code": "ZW",
+      "tax_type": "VAT",
+      "rate": 15.5,
+      "currency": "ZiG",
+      "symbol": "ZiG"
+    }
+  ]
+}
