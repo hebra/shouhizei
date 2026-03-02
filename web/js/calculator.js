@@ -51,6 +51,13 @@ document.addEventListener("DOMContentLoaded", () => {
       option.textContent = item.country;
       countrySelect.appendChild(option);
     });
+
+    // Restore selected country from localStorage
+    const storedCountry = localStorage.getItem("selectedCountry");
+    if (storedCountry) {
+      countrySelect.value = storedCountry;
+      handleCountryChange();
+    }
   };
 
   /**
@@ -58,6 +65,13 @@ document.addEventListener("DOMContentLoaded", () => {
    */
   const handleCountryChange = () => {
     const selectedCode = countrySelect.value;
+    
+    // Remember selection
+    if (selectedCode) {
+      localStorage.setItem("selectedCountry", selectedCode);
+    } else {
+      localStorage.removeItem("selectedCountry");
+    }
 
     if (!selectedCode) {
       taxRateLabel.textContent = "Tax Rate (%)";
