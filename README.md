@@ -1,10 +1,10 @@
 # Shouhizei — GST/VAT Calculator
 
-Shouhizei (消費税) is a simple, interactive, and responsive GST/VAT calculator built with vanilla HTML, CSS, and JavaScript. It provides real-time calculations based on international tax rates and adapts its terminology and currency symbols dynamically.
+Shouhizei (消費税) is a lightweight, interactive, and responsive GST/VAT calculator built with vanilla HTML, CSS, and JavaScript. It provides real-time calculations based on international tax rates and adapts its terminology and currency symbols dynamically.
 
 ## Purpose
 
-The primary goal of Shouhizei is to offer a lightweight, accessible, and framework-free tool for calculating consumption taxes across different countries. It is designed to be fast, privacy-focused (no external dependencies), and easy to deploy as a static site.
+The primary goal of Shouhizei is to offer a simple, accessible, and framework-free tool for calculating consumption taxes across different countries. It is designed to be fast, privacy-focused (no external dependencies), and easy to deploy as a static site.
 
 ## Key Features
 
@@ -16,7 +16,7 @@ The primary goal of Shouhizei is to offer a lightweight, accessible, and framewo
 - **Copy-to-Clipboard:** Quickly copy results (tax amount, price with/without tax) with visual toast notifications.
 - **Persistence:** Remembers your last selected country and theme preference via `localStorage`.
 - **Accessibility-first:** Built with semantic HTML5, proper ARIA labels, and full keyboard navigation support.
-- **Responsive & Print Friendly:** Mobile-first approach using CSS Grid/Flexbox and optimized styles for printing.
+- **Responsive & Print Friendly:** Mobile-first approach using CSS Grid/Flexbox and optimised styles for printing.
 
 ## Technology Stack
 
@@ -42,7 +42,7 @@ shouhizei/
 │   └── assets/
 │       └── shouhizei.png  # Logo and Favicon
 ├── AGENTS.md              # Project guidelines for AI agents
-├── LICENSE                # MIT Licence
+├── LICENSE                # GPL v3 Licence
 ├── Makefile               # Task runner (serve, lint, format)
 ├── README.md              # Project documentation
 └── serve.ts               # Deno development server
@@ -51,15 +51,34 @@ shouhizei/
 ## Architecture
 
 ```mermaid
+---
+config:
+  theme: default
+---
 graph TD
-    A[index.html] --> B[styles.css]
-    A --> C[theme.js]
-    A --> D[utils.js]
-    A --> E[calculator.js]
-    E --> F[rates.json]
-    E --> D
-    C --> G[(localStorage)]
-    E --> G
+    subgraph Frontend [Web Browser]
+        UI[index.html]
+        Style[styles.css]
+        Variables[variables.css]
+        
+        subgraph Scripts [Logic]
+            Theme[theme.js]
+            Calc[calculator.js]
+            Utils[utils.js]
+        end
+        
+        Data[(rates.json)]
+        Store[(localStorage)]
+    end
+
+    UI --> Style
+    Style --> Variables
+    UI --> Theme
+    UI --> Calc
+    Calc --> Utils
+    Calc --> Data
+    Calc --> Store
+    Theme --> Store
 ```
 
 ## Local Development
@@ -84,6 +103,25 @@ deno run --allow-net --allow-read serve.ts
 
 The site will be available at `http://localhost:8000`.
 
+### Development Tasks
+
+The `Makefile` also provides utility commands for code quality:
+
+```bash
+# Format the code using Deno's formatter
+make format
+
+# Lint the JavaScript files
+make lint
+```
+
+## Performance & Accessibility
+
+- **Total Page Size:** < 100KB (initial load).
+- **Fast Load:** No external JavaScript frameworks or heavy CSS libraries.
+- **Accessibility:** Follows WCAG AA standards, ensuring high contrast and screen reader compatibility.
+- **Offline Capable:** Designed to be served as a PWA or easily cached for offline use.
+
 ## Licence
 
-MIT Licence. See `LICENSE` for details.
+GPL v3 Licence. See `LICENSE` for details.
